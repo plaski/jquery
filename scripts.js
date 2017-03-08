@@ -1,7 +1,7 @@
 var carouselList = $('#carousel ul');
 
 $(function () {
-	setInterval(changeSlide, 5000);
+	var timer = setInterval(changeSlide, 5000);
 });
 
 function changeSlide () {
@@ -14,3 +14,9 @@ function moveFirstSlide() {
 	lastItem.after(firstItem);
 	carouselList.css({marginLeft:0});
 };
+
+$('#firstSlide').click(function() {
+	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
+	clearInterval(timer);
+	timer = setInterval('$("#firstSlide").click()', 5000);
+});
