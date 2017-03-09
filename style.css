@@ -40,7 +40,29 @@ img {
 	left: calc(50%);
 	transform: translateX(-50%);
 }
-
+#nextSlide {
+	border-radius: 50%;
+	border: 1px solid #000;
+	height: 20px;
+	width: 20px;
+	background-color: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	transform: translateX(-100%);
+}
+#prevSlide {
+	border-radius: 50%;
+	border: 1px solid #000;
+	height: 20px;
+	width: 20px;
+	background-color: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+}
 button {
 	border-radius: 50%;
 	border: 1px solid #000;
@@ -48,7 +70,8 @@ button {
 	width: 20px;
 	background-color: rgba(0, 0, 0, 0.1);
 	cursor: pointer;
+	outline: 0;
 }
-button:hover {
+button:hover, #nextSlide:hover, #prevSlide:hover {
 	background-color: rgba(0, 0, 0, 0.3);
 }
