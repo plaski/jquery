@@ -1,12 +1,17 @@
 var carouselList = $('#carousel ul');
 
 $(function () {
+	getSlideNumber();
 	timer = setInterval(changeSlide, 5000);
 });
 
-function changeSlide () {
-	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
+function getSlideNumber() {
+	alert($('li').attr('id'));
 }
+
+function changeSlide() {
+	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
+};
 
 function moveFirstSlide() {
 	var firstItem = carouselList.find('li:first')
