@@ -23,16 +23,16 @@ ul {
 }
 
 li {
-	height: 100%;
-	width: 20%;
+	height: 400px;
+	width: 500px;
 	list-style: none;
 	float: left;
 	display: inline-block;
 }
 
 img {
-	height: 400px;
-	width: 500px;
+	height: 100%;
+	width: 100%;
 }
 #carousel div {
 	position: absolute;
