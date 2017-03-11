@@ -15,6 +15,11 @@ function moveFirstSlide() {
 	carouselList.css({marginLeft:0});
 };
 
+function resetInterval() {
+	clearInterval(timer);
+	timer = setInterval(changeSlide, 5000);
+};
+
 $('#getNextSlide').click(function() {
 	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
 	resetInterval();
@@ -28,12 +33,6 @@ $('#getPrevSlide').click(function() {
 	carouselList.animate({'marginLeft':0}, 1000);
 	resetInterval();
 });
-
-function resetInterval() {
-	clearInterval(timer);
-	timer = setInterval(changeSlide, 5000);
-};
-
 
 $('#getFirstSlide').click(function() {
 	var index = $('#firstSlide').index();
