@@ -1,11 +1,41 @@
 var carouselList = $('#carousel ul');
+var timer;
+
+var slidesArray = carouselList.find('li').toArray();
+
+$('.controlButtons button').click(function () {
+	var activeButtonPosition = $('.controlButtons button.active').index();
+	var clickedButtonPosition = $(this).index();
+
+	// var gotoSlide = slidesArray[$(this).index()];
+	// slidePosition = $(gotoSlide).index();
+	// $('.controlButtons button').toArray().length
+	// console.log();
+
+	if (clickedButtonPosition < activeButtonPosition) {
+		var moves = activeButtonPosition - clickedButtonPosition;
+
+	} else if (clickedButtonPosition > activeButtonPosition) {
+		var moves = Math.abs(activeButtonPosition - clickedButtonPosition);
+		clearInterval(timer);
+
+		for (var i = 0; i < moves; i++) {
+			setTimeout(function () {
+				changeSlide(1000 / moves);
+			}, i * 1000 / moves);
+		}
+
+		setTimeout(resetInterval, 1000);
+	}
+});
 
 $(function () {
 	timer = setInterval(changeSlide, 5000);
 });
 
-function changeSlide() {
-	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
+function changeSlide(interval) {
+	interval = interval || 1000;
+	carouselList.animate({'marginLeft':-500}, interval, moveFirstSlide);
 };
 
 function moveFirstSlide() {
@@ -65,7 +95,7 @@ function activeButton(button) {
 	$(button).addClass('active');
 	$('button').not(button).removeClass('active');
 };
-
+/*
 $('#getFirstSlide').click(function() {
 	var index = $('#firstSlide').index();
 	carouselList.animate({'marginLeft':-500*index}, 500);
@@ -92,3 +122,4 @@ $('#getFifthSlide').click(function() {
 	carouselList.animate({'marginLeft':-500*index}, 500);
 	activeButton('#getFifthSlide');
 });
+*/
