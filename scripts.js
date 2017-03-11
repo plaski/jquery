@@ -1,13 +1,8 @@
 var carouselList = $('#carousel ul');
 
 $(function () {
-	getSlideNumber();
 	timer = setInterval(changeSlide, 5000);
 });
-
-function getSlideNumber() {
-	alert($('li').attr('id'));
-}
 
 function changeSlide() {
 	carouselList.animate({'marginLeft':-500}, 1000, moveFirstSlide);
